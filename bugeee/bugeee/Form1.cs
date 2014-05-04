@@ -17,6 +17,10 @@ namespace bugeee
         public Form1()
         {
             InitializeComponent();
+            tbAddress.Text = "localhost";
+            tbPassword.Text = "password123";
+            tbPort.Text = "3306";
+            tbUserName.Text = "root";
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace bugeee
                 }
             }
             connection.Close();
-            DbQueries queries = new DbQueries(tablesList);
+            DbQueries queries = new DbQueries(tablesList, myConnectionString);
             queries.ShowDialog();
         }
         List<String> tablesList = new List<string>();
