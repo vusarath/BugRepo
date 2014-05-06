@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DbQueries));
             this.pnlLayout = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblSelect = new System.Windows.Forms.Label();
@@ -490,10 +491,12 @@
             this.ClientSize = new System.Drawing.Size(537, 498);
             this.Controls.Add(this.pnlLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DbQueries";
-            this.Text = "DbQueries";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Bugs";
             this.pnlLayout.ResumeLayout(false);
             this.pnlLayout.PerformLayout();
             this.panel1.ResumeLayout(false);
