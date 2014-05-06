@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnFetch = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
@@ -38,14 +39,13 @@
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFetch = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCount = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnCount = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             // 
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.1141F));
@@ -95,6 +95,18 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Password";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnFetch
+            // 
+            this.btnFetch.BackColor = System.Drawing.Color.Transparent;
+            this.btnFetch.Location = new System.Drawing.Point(3, 220);
+            this.btnFetch.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.btnFetch.Name = "btnFetch";
+            this.btnFetch.Size = new System.Drawing.Size(75, 23);
+            this.btnFetch.TabIndex = 1;
+            this.btnFetch.Text = "Fetch DB\'s";
+            this.btnFetch.UseVisualStyleBackColor = false;
+            this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
             // 
             // label2
             // 
@@ -147,6 +159,7 @@
             this.tbPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPassword.Location = new System.Drawing.Point(84, 81);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(243, 20);
             this.tbPassword.TabIndex = 3;
             // 
@@ -161,17 +174,26 @@
             this.panel1.Size = new System.Drawing.Size(243, 30);
             this.panel1.TabIndex = 4;
             // 
-            // btnFetch
+            // button1
             // 
-            this.btnFetch.BackColor = System.Drawing.Color.Transparent;
-            this.btnFetch.Location = new System.Drawing.Point(3, 220);
-            this.btnFetch.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.btnFetch.Name = "btnFetch";
-            this.btnFetch.Size = new System.Drawing.Size(75, 23);
-            this.btnFetch.TabIndex = 1;
-            this.btnFetch.Text = "Fetch DB\'s";
-            this.btnFetch.UseVisualStyleBackColor = false;
-            this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
+            this.button1.Location = new System.Drawing.Point(166, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Fixed Count";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCount
+            // 
+            this.btnCount.BackColor = System.Drawing.Color.Transparent;
+            this.btnCount.Location = new System.Drawing.Point(3, 3);
+            this.btnCount.Name = "btnCount";
+            this.btnCount.Size = new System.Drawing.Size(75, 23);
+            this.btnCount.TabIndex = 2;
+            this.btnCount.Text = "Open Count";
+            this.btnCount.UseVisualStyleBackColor = false;
+            this.btnCount.Click += new System.EventHandler(this.btnCount_Click);
             // 
             // btnConnect
             // 
@@ -216,17 +238,6 @@
             this.label4.Text = "Select DB";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnCount
-            // 
-            this.btnCount.BackColor = System.Drawing.Color.Transparent;
-            this.btnCount.Location = new System.Drawing.Point(3, 3);
-            this.btnCount.Name = "btnCount";
-            this.btnCount.Size = new System.Drawing.Size(75, 23);
-            this.btnCount.TabIndex = 2;
-            this.btnCount.Text = "Open Count";
-            this.btnCount.UseVisualStyleBackColor = false;
-            this.btnCount.Click += new System.EventHandler(this.btnCount_Click);
-            // 
             // lblStatus
             // 
             this.lblStatus.BackColor = System.Drawing.SystemColors.Window;
@@ -242,23 +253,13 @@
             this.lblStatus.Text = "";
             this.lblStatus.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(166, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Fixed Count";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(330, 250);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
